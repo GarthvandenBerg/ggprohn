@@ -42,3 +42,46 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+document.getElementById('contact-form').addEventListener('submit', async function (e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const statusDiv = document.getElementById('form-status');
+  const submitBtn = form.querySelector('button[type="submit"]');
+
+  submitBtn.disabled = true;
+  statusDiv.textContent = 'Submitting query...';
+  statusDiv.className = 'status-sending';
+
+  try {
+    // Relative path works across all subfolders
+    const response = await fetch('/scripts/send-mail.php', {
+      method: 'POST',
+      body: new FormData(form)
+    });
+
+    const rawText = await response.text();
+    let result;
+
+    try {
+      result = JSON.parse(rawText);
+    } catch (parseErr) {
+      throw new Error(`Server Response (${response.status}): ${rawText.substring(0, 120)}`);
+    }
+
+    if (response.ok && result.success) {
+      statusDiv.textContent = result.message;
+      statusDiv.className = 'status-success';
+      form.reset();
+    } else {
+      statusDiv.textContent = result.message || 'Submission failed. Please try again.';
+      statusDiv.className = 'status-error';
+    }
+  } catch (error) {
+    statusDiv.textContent = `Error: ${error.message}`;
+    statusDiv.className = 'status-error';
+  } finally {
+    submitBtn.disabled = false;
+  }
+});

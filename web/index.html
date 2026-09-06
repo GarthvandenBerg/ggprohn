@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GG Prohn | Poultry Processing Solutions</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="images/logo.ico">
+    <base target="_self">
 </head>
+
 <body>
 
     <!-- NAVIGATION -->
@@ -41,7 +45,8 @@
         <div class="overlay"></div>
         <div class="container hero-content">
             <h1>Engineering Better Poultry Processing Solutions</h1>
-            <p>Supplying premium poultry processing equipment, technical expertise and complete production solutions throughout Southern Africa.</p>
+            <p>Supplying premium poultry processing equipment, technical expertise and complete production solutions
+                throughout Southern Africa.</p>
             <div class="hero-buttons">
                 <a href="#solutions" class="btn-dark">View Products</a>
                 <a href="#contact" class="btn-outline">Learn More</a>
@@ -58,7 +63,8 @@
             <div class="why-content">
                 <span>WHY CHOOSE US</span>
                 <h2>Engineering Excellence Built on Experience</h2>
-                <p>GG Prohn has become a trusted supplier within the poultry industry through quality equipment, dependable service and technical expertise.</p>
+                <p>GG Prohn has become a trusted supplier within the poultry industry through quality equipment,
+                    dependable service and technical expertise.</p>
                 <div class="features">
                     <div>
                         <h3>20+</h3>
@@ -88,11 +94,12 @@
             <div class="section-title">
                 <span>WHAT WE DO</span>
                 <h2>Complete Poultry Processing Solutions</h2>
-                <p>From complete processing plants to replacement parts, GG Prohn delivers reliable equipment and expert support for every stage of poultry production.</p>
+                <p>From complete processing plants to replacement parts, GG Prohn delivers reliable equipment and expert
+                    support for every stage of poultry production.</p>
             </div>
 
             <div class="solution-grid">
-                <a href="#solutions" class="solution-card">
+                <a href="webpages/processing-equipment.html" class="solution-card">
                     <img src="images/processing.webp" alt="Processing Equipment">
                     <div class="solution-content">
                         <h3>Processing Equipment</h3>
@@ -101,7 +108,7 @@
                     </div>
                 </a>
 
-                <a href="#solutions" class="solution-card">
+                <a href="webpages/industrial-equipment.html" class="solution-card">
                     <img src="images/industrial.webp" alt="Industrial Equipment">
                     <div class="solution-content">
                         <h3>Industrial Equipment</h3>
@@ -110,7 +117,7 @@
                     </div>
                 </a>
 
-                <a href="#solutions" class="solution-card">
+                <a href="webpages/packaging-systems.html" class="solution-card">
                     <img src="images/packaging.webp" alt="Packaging Systems">
                     <div class="solution-content">
                         <h3>Packaging Systems</h3>
@@ -146,7 +153,15 @@
         <div class="container">
             <h2>Ready To Upgrade Your Poultry Facility?</h2>
             <p>Speak to our specialists about your processing requirements.</p>
-            <a href="mailto:info@ggprohn.com" class="btn-light">Request A Quote</a>
+            <form id="contact-form">
+                <div class="form-row">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                </div>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn-light">Send Message</button>
+                <div id="form-status"></div>
+            </form>
         </div>
     </section>
 
@@ -162,9 +177,9 @@
                 <h3>Quick Links</h3>
                 <a href="index.html">Home</a>
                 <a href="index.html#solutions">Solutions</a>
-                <a href="processing-equipment.html">Processing Lines</a>
-                <a href="industrial-equipment.html">Industrial Equipment</a>
-                <a href="packaging-systems.html">Packaging Systems</a>
+                <a href="webpages/processing-equipment.html">Processing Lines</a>
+                <a href="webpages/industrial-equipment.html">Industrial Equipment</a>
+                <a href="webpages/packaging-systems.html">Packaging Systems</a>
                 <a href="index.html#gallery">Gallery</a>
             </div>
 
@@ -181,6 +196,7 @@
         </div>
     </footer>
 
-    <script src="main.js"></script>
+    <script src="scripts/main.js"></script>
 </body>
+
 </html>

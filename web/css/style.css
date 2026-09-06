@@ -700,3 +700,186 @@ footer a:hover {
         font-size: 14px;
     }
 }
+
+/* Contact Form Container Layout */
+#contact-form, 
+form {
+  max-width: 600px;
+  margin: 2rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 0 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Side-by-side layout for Name & Email on desktop */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+@media (max-width: 640px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Input Fields & Textarea Styling */
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form textarea,
+form input[type="text"],
+form input[type="email"],
+form textarea {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  background-color: #1e1e1e;
+  border: 1px solid #333333;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 1rem;
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#contact-form textarea,
+form textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+/* Placeholder Styling */
+#contact-form input::placeholder,
+#contact-form textarea::placeholder,
+form input::placeholder,
+form textarea::placeholder {
+  color: #888888;
+}
+
+/* Input Focus Glow */
+#contact-form input:focus,
+#contact-form textarea:focus,
+form input:focus,
+form textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
+}
+
+/* Action Button */
+#contact-form button,
+form button[type="submit"] {
+  padding: 0.875rem 1.75rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+/* Form Status Feedback Message */
+#form-status {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  text-align: center;
+  min-height: 1.5rem;
+  color: #e5e7eb;
+}
+
+#form-status {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: center;
+  min-height: 1.5rem;
+  transition: color 0.2s ease;
+}
+
+#form-status.status-sending {
+  color: #9ca3af;
+}
+
+#form-status.status-success {
+  color: #10b981;
+}
+
+#form-status.status-error {
+  color: #ef4444;
+}
+
+/* Coming Soon Section */
+.coming-soon-container {
+  max-width: 1100px;
+  margin: 4rem auto;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+
+.coming-soon-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.1);
+  color: #a1a1aa;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.coming-soon-header h2 {
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.coming-soon-header p {
+  color: #9ca3af;
+  margin-bottom: 2.5rem;
+}
+
+.coming-soon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.placeholder-card {
+  background: #141414;
+  border: 1px dashed #333333;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: border-color 0.3s ease;
+}
+
+.placeholder-card:hover {
+  border-color: #555555;
+}
+
+.image-placeholder {
+  height: 200px;
+  background: #1a1a1a;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  color: #52525b;
+}
+
+.image-placeholder span {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.placeholder-card h3 {
+  color: #e4e4e7;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}
