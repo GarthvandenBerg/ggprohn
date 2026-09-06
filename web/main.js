@@ -1,43 +1,44 @@
-const modalTriggers = document.querySelectorAll('[data-modal]');
-const modalOverlay = document.getElementById('modal-overlay');
-const closeButtons = document.querySelectorAll('.modal-close');
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Mobile Menu Toggle
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const navMenu = document.querySelector('nav');
 
-const closeModal = () => {
-    if (modalOverlay) {
-        modalOverlay.classList.remove('active');
-        document.querySelectorAll('.modal-window').forEach(m => m.classList.remove('active'));
-        document.body.style.overflow = '';
+    if (mobileToggle && navMenu) {
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
     }
-};
 
-modalTriggers.forEach(trigger => {
-    trigger.addEventListener('click', (e) => {
-        e.preventDefault();
-        const modalId = trigger.getAttribute('data-modal');
-        const targetModal = document.getElementById(modalId);
+    // 2. Click Animation & Smooth Scroll for Internal Links
+    const anchorLinks = document.querySelectorAll('a[href*="#"]');
 
-        if (modalOverlay && targetModal) {
-            document.querySelectorAll('.modal-window').forEach(m => m.classList.remove('active'));
-            modalOverlay.classList.add('active');
-            targetModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
+    anchorLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            const targetId = href.substring(href.indexOf('#'));
+
+            if (targetId && targetId !== '#') {
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    e.preventDefault();
+
+                    // Apply click animation effect
+                    this.classList.add('click-animated');
+                    setTimeout(() => this.classList.remove('click-animated'), 400);
+
+                    // Close mobile nav if open
+                    if (navMenu && navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                    }
+
+                    // Smooth Scroll to destination
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
     });
-});
-
-closeButtons.forEach(btn => btn.addEventListener('click', closeModal));
-
-if (modalOverlay) {
-    modalOverlay.addEventListener('click', (e) => {
-        if (e.target === modalOverlay) closeModal();
-    });
-}
-
-// Close modal when CTA links inside modals are clicked
-document.querySelectorAll('.modal-cta').forEach(link => {
-    link.addEventListener('click', closeModal);
-});
-
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeModal();
 });
