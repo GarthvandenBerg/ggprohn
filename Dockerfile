@@ -1,5 +1,10 @@
 FROM nginxinc/nginx-unprivileged:stable-alpine3.24
 
+# Temporarily switch to root to perform package upgrades
+USER root
+RUN apk update && apk upgrade --no-cache
+USER 101
+
 # Copy custom Nginx configuration
 COPY nginx/default.conf /etc/nginx/conf.d/default.conf
 
